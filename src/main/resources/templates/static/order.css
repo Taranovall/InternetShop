@@ -1,0 +1,62 @@
+.order-menu h1 {
+    text-align: center;
+}
+
+.order-menu .text {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.order-menu .padding {
+    padding: 1em 0;
+}
+
+.order-menu .productList .order{
+    padding-bottom: .1rem;
+    font-size: 1.5em;
+}
+
+.order-menu .productList .prod img{
+    width: 5em;
+}
+
+.order-menu .productList .prod td {
+    text-align: center;
+    vertical-align: inherit;
+}
+
+.order-menu .buy {
+    margin: 0 auto;
+    display: block;
+}
+
+.order-menu .row input {
+    margin-bottom: 1em;
+}
+.cell {
+    padding: 15px;
+}
+.customer .info {
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.customer .info h4 {
+    margin: 1rem 0;
+}
+.customer .info p {
+    margin-top: .5rem;
+}
+
+.customer .cell {
+    color: #000;
+    text-decoration: none;
+    text-decoration-line: none;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+}
+
+
+
+

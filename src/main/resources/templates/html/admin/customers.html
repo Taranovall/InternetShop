@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <title>Заказы</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/order.css">
+</head>
+<body>
+<nav th:insert="html/fragment :: navbar"/>
+<div class="container-fluid customer">
+    <div class="row">
+        <a th:each="customer : ${customers}" class="col-xs-12 col-sm-6 cell" th:href="'/admin/customer-' + ${customer.id}">
+            <div class="info btn-outline-dark">
+                <h4 th:text="${customer.name} + ' ' + ${customer.surname}"/>
+                <p>Количество товаров: <span th:text="${customer.getCountProduct()}"/></p>
+                <p>Общая стоимость: <span th:text="${customer.getTotalSum()} + '$'"/></p>
+            </div>
+        </a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <title th:text="${customer.name} + ' ' + ${customer.surname}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/order.css">
+</head>
+<body>
+<nav th:insert="html/fragment :: navbar"/>
+<div class="container order-menu">
+    <div class="row padding">
+        <div class="col-xs-12 col-sm-6">
+            <div class="text">Имя: <span th:text="${customer.name}"/></div>
+            <div class="text">Фамилия: <span th:text="${customer.surname}"/></div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="text">Номер: <span th:text="${customer.number}"/></div>
+            <div class="text">Адрес: <span th:text="${customer.address}"/></div>
+        </div>
+    </div>
+    <div class="productList">
+        <div class="order">Общая стоимость<span class="float-right" th:text="${customer.getTotalSum()} + '$'"/></div>
+        <table class="table table-bordered table-hover">
+            <tbody>
+            <tr th:each="el : ${customer.products}" class="prod">
+                <td scope="row">
+                    <img th:src="*{el.photo}">
+                </td>
+                <td th:text="${el.name}"/>
+                <td th:text="'$ ' + ${el.price}"/>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <title>Оформление заказа</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/order.css">
+</head>
+<body>
+<nav th:insert="html/fragment :: navbar"/>
+<div class="container order-menu">
+    <h1>Добавить товар</h1>
+    <form th:action="@{/order}" method="post" enctype="multipart/form-data">
+        <p th:if="${nullField}" class="alert alert-danger text-center" role="alert">Заполните все поля!</p>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <input type="text" name="name" th:value="${name}" placeholder="Имя" class="form-control">
+                <input type="text" name="surname" th:value="${surname}" placeholder="Фамилия" class="form-control">
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <input type="text" name="number" th:value="${number}" placeholder="Номер" class="form-control">
+                <input type="text" name="address" th:value="${address}" placeholder="Адрес" class="form-control">
+            </div>
+        </div>
+        <div class="productList">
+            <div class="order">Заказ на сумму<span class="float-right" th:text="${totalSum} + '$'"/></div>
+            <table class="table table-bordered table-hover">
+                <tbody>
+                <tr th:each="el : ${products}" class="prod">
+                    <td scope="row">
+                        <img th:src="*{el.getPhoto()}">
+                    </td>
+                    <td th:text="${el.name}"/>
+                    <td th:text="${el.price}"/>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <button type="submit" class="btn btn-outline-dark buy">Купить</button>
+    </form>
+</div>
+</body>
+</html>

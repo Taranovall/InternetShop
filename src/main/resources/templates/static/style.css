@@ -1,0 +1,132 @@
+.product .name {
+    text-align: center;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #ddd;
+}
+
+.product {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+
+.product .price {
+    text-align: center;
+    padding-top: 7px;
+}
+
+.product .name,
+.product .list-group-item,
+.product .putIntoCard {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.product .putIntoCard {
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    width: 90%;
+    font-size: 0.75em;
+}
+
+.cell {
+    padding: 15px;
+}
+
+.product .card-body {
+    padding-bottom: 0.5rem;
+}
+
+
+.more-options {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.more-options a {
+    cursor: pointer;
+}
+
+
+.catalog {
+    margin-top: 10px;
+}
+
+.xs-option-container {
+    margin: 10px 0;
+}
+
+.xs-option-container a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+@media (min-width: 576px) {
+    #findProducts,
+    #productCatalog {
+        display: block;
+    }
+}
+
+.form-control {
+    border-radius: .25rem !important;
+}
+
+.navbar {
+    border-bottom: 1px solid #dee2e6;
+}
+
+
+.product img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+}
+
+
+.notFound {
+    text-align: center;
+}
+
+.notFound p {
+    margin: 0;
+}
+
+.filters .form-group {
+    margin-bottom: 0px;
+}
+
+.filters .card-body {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.filters .card-header {
+    border-top: 1px solid rgba(0, 0, 0, .125);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

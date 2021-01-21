@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/auth.css">
+</head>
+<body>
+<div class="container">
+    <form th:action="@{/login}" method="post" class="auth-menu">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" >Авторизация</h5>
+                </div>
+                <div class="modal-body">
+                    <p th:if="${loginError}" class="error alert alert-primary" role="alert">Неправильный логин или пароль</p>
+                    <input type="text" name="username" placeholder="Логин" class="form-control">
+                    <input type="password" name="password" placeholder="Пароль" class="form-control">
+                    <button type="submit" class="btn btn-outline-dark">Войти</button>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-outline-dark" th:href="'/registration'">Создать аккаунт</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <br>
+</div>
+</body>
+</html>

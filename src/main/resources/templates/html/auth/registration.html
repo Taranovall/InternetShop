@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/auth.css">
+    <title>Создать аккаунт</title>
+</head>
+<body>
+<div class="container">
+    <form th:action="@{/registration}" th:object="${userForm}" method="post" class="auth-menu">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" >Регистрация</h5>
+                </div>
+                <div class="modal-body">
+                    <!-- ОБРАБОТКА ОШИБОК -->
+                    <p th:if="${username}" class="error alert alert-primary" role="alert">Недопустимая длина имени</p>
+                    <p th:if="${usernameDuplicate}" class="error alert alert-primary" role="alert">Пользователь с таким именем уже существует</p>
+                    <p th:if="${password}" class="error alert alert-primary" role="alert">Недопустимая длина пароля</p>
+                    <p th:if="${passwordConfirm}" class="error alert alert-primary" role="alert">Пароли не совпадают</p>
+                    <!-- /ОБРАБОТКА ОШИБОК -->
+                    <input type="text" name="username" placeholder="Логин" class="form-control" th:field="*{username}">
+                    <input type="password" name="password" placeholder="Пароль" class="form-control" th:field="*{password}">
+                    <input type="password" name="passwordConfirm" placeholder="Повторите пароль" class="form-control" th:field="*{passwordConfirm}" style="margin-bottom: 0px">
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-outline-dark">Зарегистрироваться</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <br>
+</div>
+</body>
+</html>

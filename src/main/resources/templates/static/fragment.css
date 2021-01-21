@@ -1,0 +1,51 @@
+@media (max-width: 991px) {
+    .nav-button {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .navbar-nav .dropdown {
+        margin: 0 auto;
+    }
+
+    .navbar-nav .dropdown-menu {
+        position: absolute;
+    }
+}
+
+.table {
+    margin-bottom: 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+
+.modal-content tbody img {
+    margin: 0 auto;
+    display: block;
+    width: 75%;
+}
+
+.modal-content tbody td {
+    text-align: center;
+    vertical-align: inherit;
+}
+
+.modal-content tr .remove {
+    border: none;
+    background-color: #fff;
+}
+
+.modal-content tr .remove:hover {
+    background-color: #dc3545;
+}
+
+.modal-content tr .remove:hover button {
+    color: #fff;
+    cursor: pointer;
+}
+
+.modal-content tr .remove button {
+    display: contents;
+}

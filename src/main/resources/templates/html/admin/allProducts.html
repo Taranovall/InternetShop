@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование товаров</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/adminProducts.css">
+</head>
+<body>
+<nav th:insert="html/fragment :: navbar"/>
+<div class="container-fluid">
+    <form th:action="@{/admin/products}" method="post">
+        <div class="input-group">
+            <input type="search" name="searchQuery" class="form-control" placeholder="Поиск" required>
+            <button class="btn btn-outline-dark" type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-search" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                          d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                    <path fill-rule="evenodd"
+                          d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                </svg>
+            </button>
+        </div>
+    </form>
+    <div class="show-products">
+        <div class="notFound" th:if="${query != null}">
+            <p>По запросу</p>
+            <h1 th:text="'«' + ${query} + '»'"/>
+            <p>ничего не найдено, попробуйте изменить запрос</p>
+        </div>
+        <div>
+            <table class="table table-bordered table-hover">
+                <tbody>
+                <tr th:each="p : ${products}" class="prod">
+                    <td>
+                       <img th:src="*{p.getPhoto()}">
+                    </td>
+                    <td id="name" th:text="${p.name}"/>
+                    <td id="producer" th:text="${p.producer}"/>
+                    <td id="category" th:text="${p.category}"/>
+                    <td id="price" th:text="'$ ' + ${p.price}"/>
+                    <td id="edit">
+                        <a th:href="'/admin/product/edit/' + ${p.id}" class="btn btn-outline-dark">
+                            Редактировать
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

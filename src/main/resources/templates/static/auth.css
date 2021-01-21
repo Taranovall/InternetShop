@@ -1,0 +1,20 @@
+.auth-menu .modal-title {
+    margin: 0 auto;
+}
+
+.auth-menu .modal-body input {
+    margin-bottom: 1rem;
+}
+
+.auth-menu .modal-body button {
+    width: 100%;
+}
+
+.auth-menu .modal-footer a,
+.auth-menu .modal-footer button {
+    width: 100% ;
+}
+
+.auth-menu .modal-body p {
+    text-align: center;
+}
