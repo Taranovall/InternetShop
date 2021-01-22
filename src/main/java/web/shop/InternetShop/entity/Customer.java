@@ -43,11 +43,13 @@ public class Customer {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Customer customer = (Customer) o;
-        return Objects.equals(name, customer.name) &&
-                Objects.equals(surname, customer.surname) &&
-                Objects.equals(address, customer.address) &&
-                Objects.equals(number, customer.number);
+
+        if (!name.equals(customer.name)) return false;
+        if (!surname.equals(customer.surname)) return false;
+        if (!address.equals(customer.address)) return false;
+        return number.equals(customer.number);
     }
 
     @Override

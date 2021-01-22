@@ -6,6 +6,7 @@ import web.shop.InternetShop.entity.Customer;
 import web.shop.InternetShop.entity.Product;
 import web.shop.InternetShop.repository.CustomerRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,19 +16,24 @@ public class CustomerService {
     private CustomerRepository customerRepository;
 
     public void saveAllProducts(Customer customer, List<Product> products) {
-        Customer customerFromDB = customerRepository.findCustomerByNameAndSurnameAndAddressAndNumber(
-                customer.getName(),
-                customer.getSurname(),
-                customer.getAddress(),
-                customer.getNumber());
+        Customer customerFromDB = customerRepository.findCustomerByName(customer.getName());
+        List<Product> prod = new ArrayList<>();
         if (customerFromDB != null) {
-            customer.setProducts(products);
-            customer.setId(customerFromDB.getId());
-            customerRepository.save(customer);
+            customer.setSurname(customerFromDB.getSurname());
+            customer.setAddress(customerFromDB.getAddress());
+            customer.setNumber(customerFromDB.getNumber());
+
+            if (customer.equals(customerFromDB)) {
+                customer.setId(customerFromDB.getId());
+                prod.addAll(customerFromDB.getProducts());
+                prod.addAll(products);
+                customer.setProducts(prod);
+            }
         } else {
-            customer.setProducts(products);
-            customerRepository.save(customer);
+            prod.addAll(products);
+            customer.setProducts(prod);
         }
+            customerRepository.save(customer);
     }
 
     public Customer getCustomer(Long id) {
